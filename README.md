@@ -9,7 +9,7 @@ PUC Minas - TCC Ciência de Dados e Big Data
 │   ├── Estudos
 │   ├── Manuais
 ├── script.py
-├── TCC - PUC Minas.ipynb
+├── [TCC - PUC Minas.ipynb](TCC - PUC Minas.ipynb)
 ```
 
 ## Requisitos
