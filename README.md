@@ -9,7 +9,7 @@ PUC Minas - TCC Ciência de Dados e Big Data
 │   ├── Estudos
 │   ├── Manuais
 ├── script.py
-├── [TCC - PUC Minas.ipynb](TCC - PUC Minas.ipynb)
+├── TCC - PUC Minas.ipynb
 ```
 
 ## Requisitos
@@ -21,6 +21,9 @@ Baixar ou clonar (via git) a pasta do projeto deste link [TCC PUC](https://githu
 
 Excutar o arquivo "script.py" que encontra-se na raíz do projeto
 > Este arquivo é responsável por gerar os datasets necessários. Os arquivos serão salvos na pasta data/.
+
+## Executando Projeto
+Basta executar o arquivo TCC - PUC Minas.ipynb
 
 
 
