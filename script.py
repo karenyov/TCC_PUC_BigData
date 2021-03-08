@@ -13,7 +13,7 @@ print('Obtendo os dados, aguarde!');
 
 # Pegando dados
 data = [];
-for i in range(1,40):
+for i in range(1, 1000):
     url = urlBase + 'search/car?url=https://www.webmotors.com.br/carros%2Fsp%3Festadocidade%3DS%25C3%25A3o%2520Paulo%26tipoveiculo%3Dcarros&actualPage='+str(i)
 
     # Exibir erro caso tenha problemas para obter os dados
@@ -27,15 +27,28 @@ for i in range(1,40):
 
 data_fipe = []
 for d in data:
+    print("Obtendo dados do UniqueId: %d" % d["UniqueId"])
+
+    dataDetails = None
+    
     # Pega informações detalhadas de cada carro (necessário para obter o valor da tabela FIPE)
-    responseDetails = urlopen(urlDetails + str(d["UniqueId"]))
-    dataDetails = json.load(responseDetails)
+    try:
+        responseDetails = urlopen(urlDetails + str(d["UniqueId"]))
+        dataDetails = json.load(responseDetails)
+    except urllib.error.HTTPError as e:
+        print('Erro ao obter dados!' + e)
+    except urllib.error.URLError as e:
+        print('Erro ao obter dados!' + e)
 
     fipe = {}
     fipe["Fipe"] = 0
-    fipe["UniqueId"] = dataDetails["UniqueId"]
+
+    if dataDetails is None or "UniqueId" not in dataDetails:
+        fipe["UniqueId"] = None
+    else:
+        fipe["UniqueId"] = dataDetails["UniqueId"]
     
-    if "Specification" in dataDetails and "Evaluation" in dataDetails["Specification"]:
+    if dataDetails is not None and "Specification" in dataDetails and "Evaluation" in dataDetails["Specification"]:
         fipe["Fipe"] = dataDetails["Specification"]["Evaluation"]["FIPE"]
         
     data_fipe.append(fipe)
