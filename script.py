@@ -13,7 +13,7 @@ print('Obtendo os dados, aguarde!');
 
 # Pegando dados
 data = [];
-for i in range(1, 1000):
+for i in range(1, 500):
     url = urlBase + 'search/car?url=https://www.webmotors.com.br/carros%2Fsp%3Festadocidade%3DS%25C3%25A3o%2520Paulo%26tipoveiculo%3Dcarros&actualPage='+str(i)
 
     # Exibir erro caso tenha problemas para obter os dados
